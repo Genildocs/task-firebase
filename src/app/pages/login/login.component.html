@@ -1,0 +1,46 @@
+<div class="bg-utility flex items-center justify-center min-h-screen">
+  <div
+    class="backdrop-blur-sm bg-white/30 p-5 w-[500px] flex flex-col items-center rounded-lg"
+  >
+    <div class="mb-7">
+      <h1 class="text-2xl font-semibold text-white">Login Todo!</h1>
+    </div>
+    <div class="card flex flex-col gap-8">
+      <p-floatLabel>
+        <input pInputText id="email" [(ngModel)]="email" />
+        <label for="email">Email</label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <input
+          pInputText
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+        />
+        <label for="password">Password</label>
+      </p-floatLabel>
+    </div>
+    <div class="mt-8 w-full flex justify-around">
+      <button class="flex items-center gap-2" (click)="loginWithGoogle()">
+        <i class="pi pi-google" style="font-size: 1.6rem; color: white"></i>
+        <span
+          class="login login-google relative text-white px-5 py-1 rounded-md font-semibold"
+          >Login Goggle</span
+        >
+      </button>
+
+      <button
+        class="login login-email relative text-white px-5 py-1 font-semibold rounded-md"
+      >
+        Login
+      </button>
+      <a
+        routerLink="/new-account"
+        routerLinkActive="active"
+        class="login login-email relative text-white px-5 py-1 font-semibold rounded-md"
+      >
+        New Account
+      </a>
+    </div>
+  </div>
+</div>

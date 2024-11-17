@@ -1,0 +1,37 @@
+<div class="bg-utility flex items-center justify-center min-h-screen">
+  <div
+    class="backdrop-blur-sm bg-white/30 p-5 w-[500px] flex flex-col items-center rounded-lg"
+  >
+    <div class="mb-7">
+      <h1 class="text-2xl font-semibold text-white">New account !</h1>
+    </div>
+    <div class="card flex flex-col gap-8">
+      <p-floatLabel>
+        <input pInputText id="email" [(ngModel)]="email" required />
+        <label for="email">Email</label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <input
+          pInputText
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          minlength="8"
+          required
+        />
+        <label for="password">Password</label>
+      </p-floatLabel>
+    </div>
+    <div class="mt-8 w-full flex justify-around">
+      <button
+        class="login login-email relative text-white px-5 py-1 font-semibold rounded-md"
+        (click)="register()"
+      >
+        Create Account
+      </button>
+    </div>
+    <div class="mt-3">
+      <p class="text-red-600">{{ errorMessage }}</p>
+    </div>
+  </div>
+</div>
