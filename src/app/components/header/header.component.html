@@ -1,1 +1,16 @@
-<p>header works!</p>
+<header>
+  <div class="flex items-center justify-between px-5 py-5">
+    <div>
+      <h1 class="text-2xl font-semibold text-white">Todo Firebase</h1>
+    </div>
+    <div class="flex items-center">
+      <p class="text-white text-sm">Bem vindo, {{ name }} !</p>
+      <button
+        class="text-white px-3 font-semibold rounded-md"
+        (click)="logout()"
+      >
+        <i class="pi pi-sign-out" style="color: rgb(255, 255, 255)"></i>
+      </button>
+    </div>
+  </div>
+</header>

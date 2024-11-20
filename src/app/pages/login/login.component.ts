@@ -3,20 +3,20 @@ import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { UserData } from '../../date/date';
 import { AuthService } from '../../services/auth.service';
-
+import { CreateUserService } from '../../services/create-user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  email: string | undefined;
-  password: string | undefined;
+  email: string = '';
+  password: string = '';
 
   constructor(
     private auth: Auth,
     private router: Router,
-
+    private createUserService: CreateUserService,
     private authService: AuthService
   ) {}
 
@@ -40,5 +40,10 @@ export class LoginComponent {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  loginUserEmailAndPassword() {
+    this.createUserService.login(this.email, this.password);
+    this.router.navigate(['home']);
   }
 }

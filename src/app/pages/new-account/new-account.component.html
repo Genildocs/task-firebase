@@ -1,13 +1,15 @@
-<div class="bg-utility flex items-center justify-center min-h-screen">
-  <div
-    class="backdrop-blur-sm bg-white/30 p-5 w-[500px] flex flex-col items-center rounded-lg"
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+  <form
+    class="backdrop-blur-sm bg-white/30 p-5 w-[500px] flex flex-col items-center rounded-lg relative"
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
   >
     <div class="mb-7">
       <h1 class="text-2xl font-semibold text-white">New account !</h1>
     </div>
     <div class="card flex flex-col gap-8">
       <p-floatLabel>
-        <input pInputText id="email" [(ngModel)]="email" required />
+        <input pInputText id="email" formControlName="email" />
         <label for="email">Email</label>
       </p-floatLabel>
       <p-floatLabel>
@@ -15,9 +17,7 @@
           pInputText
           type="password"
           id="password"
-          [(ngModel)]="password"
-          minlength="8"
-          required
+          formControlName="password"
         />
         <label for="password">Password</label>
       </p-floatLabel>
@@ -25,13 +25,16 @@
     <div class="mt-8 w-full flex justify-around">
       <button
         class="login login-email relative text-white px-5 py-1 font-semibold rounded-md"
-        (click)="register()"
+        type="submit"
       >
         Create Account
       </button>
     </div>
-    <div class="mt-3">
-      <p class="text-red-600">{{ errorMessage }}</p>
+    <p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
+    <div class="absolute top-5 left-5">
+      <a routerLink="/login" routerLinkActive="active">
+        <i class="pi pi-arrow-left text-white" style="font-size: 1.6rem"></i>
+      </a>
     </div>
-  </div>
+  </form>
 </div>

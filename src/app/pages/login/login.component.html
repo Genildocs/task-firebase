@@ -1,4 +1,4 @@
-<div class="bg-utility flex items-center justify-center min-h-screen">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
   <div
     class="backdrop-blur-sm bg-white/30 p-5 w-[500px] flex flex-col items-center rounded-lg"
   >
@@ -31,6 +31,7 @@
 
       <button
         class="login login-email relative text-white px-5 py-1 font-semibold rounded-md"
+        (click)="loginUserEmailAndPassword()"
       >
         Login
       </button>
